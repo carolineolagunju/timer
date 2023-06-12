@@ -5,7 +5,7 @@ const timer = function(timeArr) {
   }
 
   for (const time of timeArr) {
-//it should not schedule alarm if it's a negative number or if typeof is not a number
+    //it should not schedule alarm if it's a negative number or if typeof is not a number
     if (time < 1 || isNaN(time)) {
       continue;
     } else {
