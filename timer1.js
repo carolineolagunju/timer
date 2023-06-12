@@ -1,24 +1,11 @@
-const timer = function(arr) {
-  if (arr === []) {
-    console.log(`This is an empty array`);
+const times = process.argv.slice(2);
+
+for (let time of times) {
+  if (time < 0 || isNaN(time)) {
+    continue;
   }
-
-  let result = [];
-  for (let i = 0; i < arr.length; i++) {
-    result[i] = Number(arr[i]);
-  }
-
-  for (let i = 0; i < result.length; i++) {
-    if (typeof result[i] !== "number" || result[i] < 1) {
-      continue;
-    } else {
-      let arrSec = result[i] * 1000;
-      setTimeout(() => {
-        process.stdout.write('.');
-      }, arrSec);
-    }
-  }
-};
-
-
-timer(process.argv.slice(2));
+  time *= 1000;
+  setTimeout(() => {
+    process.stdout.write('\x07');
+  }, time);
+}
